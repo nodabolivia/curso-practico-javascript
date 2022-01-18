@@ -21,3 +21,15 @@ porcentajePrecioConDescuento: 85
 precioConDescuento: 85
 precioOriginal: 100
 } */
+function onClickButtonPriceDiscount() {
+    const inputPrice = document.getElementById("price");
+    const priceValue = inputPrice.value;
+    const inputDiscount = document.getElementById("discount");
+    const discountValue = inputDiscount.value;
+
+    const precioConDescuento = calcularPrecioConDescuento(priceValue, discountValue);
+
+    const resultP = document.getElementById("resultPrice");
+    resultP.innerText = "El precio con descuento son $" + precioConDescuento;
+
+}
