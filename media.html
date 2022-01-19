@@ -7,9 +7,25 @@
     <title>Sacar Media</title>
   </head>
   <body>
-    <header>Sacar Media</header>
+    <header><h1>Sacar Media</h1></header>
     <main>
-      <section></section>
+      <section>
+        <h2>Mediana</h2>
+        <form>
+          <label for="inputMediana">
+            Introduce una lista numerica.
+            <br />
+            Los numeros separados por ";"
+            <br />
+          </label>
+          <input type="text" id="inputMediana" placeholder="56;89;5;200" />
+          <br />
+          <button type="button" onclick="calcularMedianaHTML()">
+            Calcular mediana
+          </button>
+          <p id="resultado"></p>
+        </form>
+      </section>
     </main>
     <script src="./media.js"></script>
   </body>
