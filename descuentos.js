@@ -26,23 +26,27 @@ const coupons = [
     "nadie",
     "secreto",
 ];
+//Solución #2: legibilidad, error first y muerte al switch
 function onClickButtonPriceDiscount() {
     const inputPrice = document.getElementById("price");
     const priceValue = inputPrice.value;
     const inputCoupon = document.getElementById("coupon");
     const couponValue = inputCoupon.value;
     let descuento;
-    switch (couponValue) {
-        case coupons[0]:
-            descuento = 15;
-            break;
-        case coupons[1]:
-            descuento = 30;
-            break;
-        case coupons[2]:
-            descuento = 25;
-            break;
+
+    if (!coupons.includes(couponValue)) {
+        alert("El cupon " + couponValue + " no es valido");
+        return;
+    } else if (couponValue === "batman") {
+        descuento = 15;
+    } else if (couponValue === "nadie") {
+        descuento = 30;
+    } else if (couponValue === "secreto") {
+        descuento = 25;
     }
+
+
+
     const precioConDescuento = calcularPrecioConDescuento(priceValue, descuento);
 
     const resultP = document.getElementById("resultPrice");
