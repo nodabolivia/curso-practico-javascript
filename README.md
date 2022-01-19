@@ -15,3 +15,10 @@
 - 2do paso Implementar formulas
 - 3er paso Crear funciones
 - 4to paso Integrar con HTML
+
+## Taller 3 Promedio, mediana y moda
+
+- 1er paso Definir formulas
+- 2do paso Implementar formulas
+- 3er paso Crear funciones
+- 4to paso Integrar con HTML
