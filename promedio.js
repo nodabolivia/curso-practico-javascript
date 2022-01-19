@@ -1,29 +1,34 @@
 // 1 mediana
 
 function calcularMediaArimetica(lista) {
-    // const sumaLista = lista.reduce(
-    //     function (valorAcumulado = 0, nuevoElemento) {
-    //         return valorAcumulado + nuevoElemento;
-    //     }
-    // );
-    const sumaLista = () => {
-        let valorAcumulado = 0;
-        lista.forEach(element => {
-            valorAcumulado += element;
-        });
-        return valorAcumulado;
-    }
-    const promedioLista = sumaLista() / lista.length;
+    const sumaLista = lista.reduce(
+        function (valorAcumulado = 0, nuevoElemento) {
+            return valorAcumulado + nuevoElemento;
+        }
+    );
+    // const sumaLista = () => {
+    //     let valorAcumulado = 0;
+    //     lista.forEach(element => {
+    //         valorAcumulado += element;
+    //     });
+    //     return valorAcumulado;
+    // }
+    const promedioLista = sumaLista / lista.length;
     return promedioLista;
 }
 function calcularPromedio() {
     const inputLista = document.getElementById("lista");
     const valueListaString = inputLista.value;
-    const valueLista = valueListaString.split(' ');
-    const promedio = calcularMediaArimetica(valueLista);
+    const valueLista = valueListaString.split(';');
+    let valueListaNum = [];
+    valueLista.forEach(element => {
+        valueListaNum.push(parseInt(element));
+    });
+    const promedio = calcularMediaArimetica(valueListaNum);
     console.log({
         valueListaString,
         valueLista,
+        valueListaNum,
         promedio
     })
     const resultP = document.getElementById("resultado");

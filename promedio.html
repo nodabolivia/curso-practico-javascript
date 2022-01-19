@@ -13,14 +13,18 @@
     <section>
       <h2>Sacando promedio</h2>
       <form>
-        <label for="lista">Introduzca una lista</label>
-        <input id="lista" />
+        <label for="lista"
+          >Introduzca una lista de numeros<br />
+          (Separa los numeros con ";")
+        </label>
+
+        <br /><input id="lista" type="text" placeholder="25;5;8;454;..." />
         <button type="button" onclick="calcularPromedio()">
           Calcular Promedio
         </button>
         <p id="resultado"></p>
       </form>
     </section>
-    <script src="promedio.js"></script>
+    <script src="./promedio.js"></script>
   </body>
 </html>
