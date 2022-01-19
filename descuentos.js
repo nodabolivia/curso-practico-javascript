@@ -22,35 +22,40 @@ precioConDescuento: 85
 precioOriginal: 100
 } */
 const coupons = [
-    "batman",
-    "nadie",
-    "secreto",
+    {
+        name: "batman",
+        discount: 15,
+    },
+    {
+        name: "nadie",
+        discount: 30,
+    },
+    {
+        name: "secreto",
+        discount: 25,
+    },
 ];
-//Solución #2: legibilidad, error first y muerte al switch
+//Solución #3: arrays y condicionales mucho más inteligentes
+
 function onClickButtonPriceDiscount() {
     const inputPrice = document.getElementById("price");
     const priceValue = inputPrice.value;
     const inputCoupon = document.getElementById("coupon");
     const couponValue = inputCoupon.value;
-    let descuento;
+    const isCoupinValueValid = function (coupon) {
+        return coupon.name === couponValue;
+    }
+    const userCoupon = coupons.find(isCoupinValueValid);
 
-    if (!coupons.includes(couponValue)) {
+    if (!userCoupon) {
         alert("El cupon " + couponValue + " no es valido");
         return;
-    } else if (couponValue === "batman") {
-        descuento = 15;
-    } else if (couponValue === "nadie") {
-        descuento = 30;
-    } else if (couponValue === "secreto") {
-        descuento = 25;
+    } else {
+        const descuento = userCoupon.discount;
+        const precioConDescuento =
+            calcularPrecioConDescuento(priceValue, descuento);
+        const resultP = document.getElementById("resultPrice");
+        resultP.innerText = "El precio con descuento son $" + precioConDescuento;
     }
-
-
-
-    const precioConDescuento = calcularPrecioConDescuento(priceValue, descuento);
-
-    const resultP = document.getElementById("resultPrice");
-    resultP.innerText = "El precio con descuento son $" + precioConDescuento;
-
 }
 
