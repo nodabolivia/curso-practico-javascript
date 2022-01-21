@@ -2,17 +2,17 @@
 let notes = [
     {
         course: "Educación Física",
-        note: 10,
+        note: 100,
         credit: 2,
     },
     {
         course: "Programación",
-        note: 8,
+        note: 80,
         credit: 5,
     },
     {
         course: "Finanzas personales",
-        note: 7,
+        note: 70,
         credit: 5,
     },
 
@@ -105,10 +105,13 @@ function clearList() {
 //Multiplicar cada número de la lista por su peso
 /*Crearemos un nuevo arreglo de solo números a 
 partir de multiplicar cada nota con sus créditos.*/
-const notesWithCredit = notes.map(
+function notesWithCredit(){
+   const notesWithCredit = notes.map(
     function (noteObject) {
         return noteObject.note * noteObject.credit;
     });
+ return notesWithCredit;
+}
 
 //Sumar todos los elementos del arreglo de elementos multiplicados por su peso
 /**
@@ -120,11 +123,15 @@ const notesWithCredit = notes.map(
  * el valor acumulado (que para evitar errores debemos inicializar con 0)
  * y el nuevo elemento de los arrays.
  */
-const sumOfNotesWithCredit = notesWithCredit.reduce(
-    function (sum = 0, newVal) {
-        return sum + newVal;
-    }
-);
+function totalNotasConCredito(){
+    const sumOfNotesWithCredit = notesWithCredit().reduce(
+        function (sum = 0, newVal) {
+            return sum + newVal;
+        }
+    );
+    return sumOfNotesWithCredit;
+}
+
 
 
 //Sumar todos los pesos (créditos)
@@ -133,25 +140,41 @@ const sumOfNotesWithCredit = notesWithCredit.reduce(
  * Vamos a crear un nuevo arreglo credits
  *  únicamente con los créditos de cada materia 
  */
-const credits = notes.map(
-    function (noteObject) {
-        return noteObject.credit;
-    });
+function creditosList(){
+    const credits = notes.map(
+        function (noteObject) {
+            return noteObject.credit;
+        });
+        return credits;
+}
+
 /**otra nueva variable sumOfCredits que recorra
  *  el arreglo credits y sume sus elementos. */
-const sumOfCredits = credits.reduce(
-    function (sum = 0, newVal) {
-        return sum + newVal;
-    }
-);
 
-//Hacer la división entre ambas “sumas”
-/**Lo último que nos falta es dividir 
- * nuestra variable sumOfNotesWithCredit 
- * sobre la variable sumOfCredits. */
-const promedioPonderadoNotasConCreditos =
-    sumOfNotesWithCredit / sumOfCredits;
 
+
+
+
+function totalCreditos(){
+    const sumOfCredits = creditosList().reduce(
+        function (sum = 0, newVal) {
+            return sum + newVal;
+        })
+    ;
+    return sumOfCredits;
+}
+
+function calcularPromedioPonderadoDeLasNotas() {
+    const promedioPonderadoNotasConCreditos =
+    totalNotasConCredito() / totalCreditos();
+    return promedioPonderadoNotasConCreditos;
+}
+function calcularPromedioPonderadoHTML() {
+    const resultP = document.getElementById("resultadoP");
+    resultP.innerText =
+        "El promedio ponderado de las notas es:" +
+        calcularPromedioPonderadoDeLasNotas();
+}
 
 
 
