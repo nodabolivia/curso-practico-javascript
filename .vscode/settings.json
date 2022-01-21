@@ -1,0 +1,5 @@
+{
+  "editor.quickSuggestionsDelay": 100,
+"editor.quickSuggestions": false,
+"editor.tabCompletion": "on"
+}
