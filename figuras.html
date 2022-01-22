@@ -8,63 +8,127 @@
   </head>
   <body>
     <header>
-      <h1>Figuras geometricas</h1>
-      <p>1er taller</p>
+      <h1>Figuras geométricas</h1>
     </header>
     <main>
       <section>
-        <h2>Calcula el area y perimetro del cuadrado</h2>
+        <h2>Cuadrado</h2>
+        <h3>Cálculo del área y perímetro de la figura</h3>
         <form>
-          <label for="inputCuadrado"> Escribe el lado del cuadrado:</label>
-          <input type="number" id="inputCuadrado" />
-          <!-- recarga la pagina porque los botones por estar dentro de un formulario entiende de que debemos enviar e ir a otra pagina -->
-          <!-- Los trata como botones de tipo submit -->
-          <button type="button" onclick="calcularPerimetroCuadrado()">
-            Calcular perimetro
+          <label for="inputCuadrado">¿Cuánto mide el lado del Cuadrado? </label>
+          <input
+            type="number"
+            id="inputCuadrado"
+            placeholder="Introduzca la medida"
+          />
+          <h4>Calcular:</h4>
+          <button type="button" onclick="manager.cuadradoPerimetro()">
+            Perímetro
           </button>
-          <button type="button" onclick="calcularAreaCuadrado()">
-            Calcular area
-          </button>
+          <button type="button" onclick="manager.cuadradoArea()">Área</button>
         </form>
+        <p id="resultadoCuadrado"></p>
+        <button type="button" onclick="manager.cuadradoClean()">Limpiar datos</button>
       </section>
       <hr />
     </main>
 
     <section>
-      <h2>Calcula el area y perimetro del triangulo</h2>
+      <h2>Triángulo</h2>
+      <h3>Cálculo del área y perímetro de la figura</h3>
       <form>
-        <label for="inputTriangulo1"> Escribe el lado 1 del triangulo:</label>
-        <input type="number" id="inputTriangulo1" /> <br />
-        <label for="inputTriangulo2"> Escribe el lado 2 del triangulo:</label>
-        <input type="number" id="inputTriangulo2" /><br />
-        <label for="inputTriangulo3"> Escribe el base del triangulo:</label>
-        <input type="number" id="inputTriangulo3" /><br />
-        <label for="inputTriangulo4"> Escribe la altura del triangulo:</label>
-        <input type="number" id="inputTriangulo4" /><br />
-
-        <button type="button" onclick="calcularPerimetroTriangulo()">
-          Calcular perimetro
+        <label for="inputTriangulo1">
+          ¿Cuánto mide el lado A del tríangulo?</label
+        >
+        <input
+          type="number"
+          id="inputTriangulo1"
+          placeholder="Introduzca la medida"
+        />
+        <br />
+        <label for="inputTriangulo2">
+          ¿Cuánto mide el lado B del tríangulo?</label
+        >
+        <input
+          type="number"
+          id="inputTriangulo2"
+          placeholder="Introduzca la medida"
+        /><br />
+        <label for="inputTriangulo3">
+          ¿Cuánto mide la base del tríangulo?</label
+        >
+        <input
+          type="number"
+          id="inputTriangulo3"
+          placeholder="Introduzca la medida"
+        /><br />
+        <label for="checkboxAltura">Conoces la altura del tríangulo</label>
+        <input type="checkbox" id="checkboxAltura" >
+        <br>
+        <label for="inputTriangulo4">
+          ¿Cuánto mide la altura del tríangulo?</label
+        >
+        <input
+          type="number"
+          id="inputTriangulo4"
+          placeholder="Introduzca la medida"
+        />
+        <h4>Calcular:</h4>
+        <button type="button" onclick="manager.trianguloPerimetro()">
+          Perímetro
         </button>
-        <button type="button" onclick="calcularAreaTriangulo()">
-          Calcular area
-        </button>
+        <button type="button" onclick="manager.trianguloArea()">Área</button>
       </form>
+      <p id="resultadoTriangulo"></p>
+      <button type="button" onclick="manager.trianguloClean()">Limpiar</button>
+      <hr />
     </section>
-    <hr />
+
     <section>
-      <h2>Calcula el area y perimetro del circulo</h2>
+      <h2>Círculo</h2>
+      <h3>Cálculo del área y perímetro del círculo</h3>
       <form>
-        <label for="inputCirculo"> Escribe el radio del ciculo:</label>
-        <input type="number" id="inputCirculo" /> <br />
-        <button type="button" onclick="calcularPerimetroCirculo()">
-          Calcular perimetro
+        <label for="inputCirculo"> ¿Cuál es el radio del círculo?</label>
+        <input type="number" id="inputCirculo" placeholder="Introduzca la medida" /> <br />
+        <h4>Calcular:</h4>
+        <button type="button" onclick="manager.circuloPerimetro()">
+          Perímetro
         </button>
-        <button type="button" onclick="calcularAreaCirculo()">
-          Calcular area
-        </button>
+        <button type="button" onclick="manager.circuloArea()">Área</button>
       </form>
+      <p id="resultadoCirculo"></p>
+      <button type="button" onclick="manager.circuloClean()">Limpiar</button>
+        
+      <hr />
     </section>
-
+    <section>
+        <h2>Rectángulo</h2>
+        <h3>Cálculo del área y perímetro de la figura</h3>
+        <form>
+          <label for="inputBaseRectangulo">¿Cuánto mide la base del rectángulo? </label>
+          <input
+            type="number"
+            id="inputBaseRectangulo"
+            placeholder="Introduzca la medida"
+          /><br />
+          <label for="inputAlturaRectangulo">¿Cuánto mide la altura del rectángulo? </label>
+          <input
+            type="number"
+            id="inputAlturaRectangulo"
+            placeholder="Introduzca la medida"
+            />
+          <h4>Calcular:</h4>
+          <button type="button" onclick="manager.rectanguloPerimetro()">
+            Perímetro
+          </button>
+          <button type="button" onclick="manager.rectanguloArea()">Área</button>
+        </form>
+        <p id="resultadoRectangulo"></p>
+        <button type="button" onclick="manager.rectanguloClean()">Limpiar datos</button>
+          
+      </section>
+      <hr />
+    </main>
     <script src="./figuras.js"></script>
   </body>
 </html>
