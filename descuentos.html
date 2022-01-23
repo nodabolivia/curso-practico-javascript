@@ -8,23 +8,31 @@
   </head>
   <body>
     <header>
-      <h1>Porcentajes y descuentos</h1>
-      <p>2do taller</p>
+      <h1>¡Mi descuento!</h1>
     </header>
     <section>
-      <h2>Calcula el precio a pagar de tus productos con descuento</h2>
+      <h2>Descubre el precio total de un producto con descuento</h2>
       <form>
-        <label for="price">Escribe el precio de tu producto</label>
-        <input type="number" id="price" />
+        <h3>¿Cúal es el precio original del producto?</h3>
+        <label for="price">Escribe el precio original del producto</label>
+        <input type="number" id="price" placeholder="000.00" />
+        <span>$</span>
         <br />
-        <label for="coupon">Escribe el cupon de descuento de tu producto</label>
-        <input type="text" id="coupon" />
-        <button type="button" onClick="onClickButtonPriceDiscount()">
+        <h3>¿Cúal es el porcentaje del descuento?</h3>
+        <label for="coupon">Escribe el porcentaje del descuento:</label>
+        <input type="text" id="discount" placeholder="0" />
+        <span>%</span>
+        <br />
+        <button type="button" onclick="manager.priceDiscount()">
           Calcular el precio con descuento
         </button>
-
-        <p id="resultPrice"></p>
       </form>
+      <h3 id="resultTitle" hidden="true" >Producto con descuento</h3>
+      <p id="resultPrice"></p>
+      <button type="button" onclick="manager.reset()">
+      Resetear
+      </button>
+
     </section>
     <script src="./descuentos.js"></script>
   </body>

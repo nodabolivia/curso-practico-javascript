@@ -7,21 +7,36 @@
     <title>Moda</title>
   </head>
   <body>
-    <header><h1>Moda</h1></header>
+    <header><h1>PROMEDIOS</h1></header>
     <main>
-      <h2>Taller 3</h2>
       <section>
+        <h2>Moda</h2>
+        <p>
+          La moda del conjunto es el número que aparece más a menudo dentro del conjunto. 
+        </p>
+        <p>
+          Si hay dos números que son tan comunes el uno al otro y más comunes que cualquier otro, puede haber más de un moda en un conjunto.
+        </p>
+        <p>
+          Si no hay números que se repiten en el conjunto, no hay ninguna moda para el conjunto.
+        </p>
+      </section>
+     
+      <section>
+        <h2>Sacar la moda de un conjunto númerico</h2>
+
         <form>
+          
           <label for="inputModa"
-            >Introducir lista númerica. <br />
-            Los números separados por ";"
+            >Introducir lista númerica: 
           </label>
+          <input id="inputModa" type="text"  placeholder="ex. 1,2,300"/>
           <br />
-          <input id="inputModa" type="text" />
-          <br />
-          <button type="button" onclick="calcularModaHTML()">
+          <button type="button" onclick="manager.calcularModa()">
             Calcular moda
           </button>
+          <button type="button" onclick="manager.reset()">Resetear</button>
+          
           <p id="resultadoP"></p>
         </form>
       </section>

@@ -8,23 +8,34 @@
   </head>
   <body>
     <header>
-      <h1>Promedios</h1>
+      <h1>PROMEDIOS</h1>
     </header>
-    <section>
-      <h2>Sacando promedio</h2>
-      <form>
-        <label for="lista"
-          >Introduzca una lista de numeros<br />
-          (Separa los numeros con ";")
-        </label>
+    <main>
+      <section>
+        <h2>Media arimética ("promedio")</h2>
 
-        <br /><input id="lista" type="text" placeholder="25;5;8;454;..." />
-        <button type="button" onclick="calcularPromedio()">
-          Calcular Promedio
-        </button>
-        <p id="resultado"></p>
-      </form>
-    </section>
+        <p>
+          La media es lo que se refiere más a menudo cuando alguien se refiere
+          al "promedio" de un grupo de números.
+        </p>
+        <p>
+          Se calcula al sumar todos los números en un conjunto y luego
+          dividirlos por la suma del número de enteros en el conjunto.
+        </p>
+      </section>
+      <section>
+        <h2>Sacar la media de un conjunto númerico</h2>
+        <form>
+          <label for="lista">Introduce una lista numérica: </label>
+          <input id="lista" type="text" placeholder="ex. 1,2,300" />
+          <button type="button" onclick="manager.calcularPromedio()">
+            Calcular media
+          </button>
+          <button type="button" onclick="manager.reset()">Resetear</button>
+          <p id="resultado"></p>
+        </form>
+      </section>
+    </main>
     <script src="./promedio.js"></script>
   </body>
 </html>

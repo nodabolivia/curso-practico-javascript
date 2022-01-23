@@ -1,10 +1,42 @@
 
+const manager = (() => {
+    function calcularPrecioConDescuento(precio, descuento) {
+        const porcentajePrecioConDescuento = 100 - descuento;
+        const precioConDescuento = (precio * porcentajePrecioConDescuento) / 100;
+        return precioConDescuento;
+    }
+    function printResultHtml(precioConDescuento) {
+        const resultTitle = document.getElementById("resultTitle");
+        const resultPrice = document.getElementById("resultPrice");
+        resultTitle.hidden = false;
+        resultPrice.innerText = `El precio total a pagar del producto es ${precioConDescuento} $.`;
+    }
 
-function calcularPrecioConDescuento(precio, descuento) {
-    const porcentajePrecioConDescuento = 100 - descuento;
-    const precioConDescuento = (precio * porcentajePrecioConDescuento) / 100;
-    return precioConDescuento;
-}
+
+    return {
+        priceDiscount: function onClickButtonPriceDiscount() {
+            const inputPrice = document.getElementById("price");
+            const priceValue = inputPrice.value;
+            const inputDiscount = document.getElementById("discount");
+            const discountValue = inputDiscount.value;
+            const precioConDescuento =
+                calcularPrecioConDescuento(priceValue, discountValue);
+            printResultHtml(precioConDescuento);
+        },
+        reset: function cleanDataHtml() {
+            const resultPrice = document.getElementById("resultPrice");
+            const resultTitle = document.getElementById("resultTitle");
+            const inputPrice = document.getElementById("price");
+            const inputDiscount = document.getElementById("discount");
+            resultPrice.innerText = "";
+            resultTitle.hidden = "true";
+            inputPrice.value = null;
+            inputDiscount.value = null;
+        },
+
+    }
+})();
+
 /**CONSOLA
  * Al enviar un objeto en la consola imprime asi segun el objeto enviado
  *console.log({
@@ -20,7 +52,7 @@ descuento: 15
 porcentajePrecioConDescuento: 85
 precioConDescuento: 85
 precioOriginal: 100
-} */
+}
 const coupons = [
     {
         name: "batman",
@@ -35,9 +67,7 @@ const coupons = [
         discount: 25,
     },
 ];
-//Solución #3: arrays y condicionales mucho más inteligentes
-
-function onClickButtonPriceDiscount() {
+function onClickButtonPriceDiscountCoupon() {
     const inputPrice = document.getElementById("price");
     const priceValue = inputPrice.value;
     const inputCoupon = document.getElementById("coupon");
@@ -58,4 +88,8 @@ function onClickButtonPriceDiscount() {
         resultP.innerText = "El precio con descuento son $" + precioConDescuento;
     }
 }
+*/
+
+
+
 

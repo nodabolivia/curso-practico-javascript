@@ -6,20 +6,28 @@ const manager = (() => {
     function areaCuadrado(lado) {
         return lado * lado;
     }
-    function printResultadoCuadrado(calculoTypo, resultado) {
+    function printResultadoCuadrado(calculoTypo, resultado,unidadM) {
         const resultadoP = document.getElementById("resultadoCuadrado");
-        resultadoP.innerText = `El ${calculoTypo} del cuadrado es ${resultado}`;
+        resultadoP.innerText = `El ${calculoTypo} del cuadrado es ${resultado} ${unidadM}`;
     }
     //Código del triángulo
-    function perimetroTriangulo(lado1, lado2, base) {
+    function perimetroTriangulo(lado1 = 0, lado2 = 0, base = 0) {
         return lado1 + lado2 + base;
     }
     function areaTriangulo(base, altura) {
         return (base * altura) / 2;
     }
-    function printResultadoTriangulo(calculoTypo, resultado) {
+    function areaTrianguloHeron(lado1 = 0, lado2 = 0, base = 0) {
+        const semiperimetro = (lado1 + lado2 + base) / 2;
+        const aux = semiperimetro * (semiperimetro - lado1) * (semiperimetro - lado2) * (semiperimetro - base);
+        const area = Math.sqrt(aux);
+        console.log({ semiperimetro, aux, area });
+        return area;
+    }
+
+    function printResultadoTriangulo(calculoTypo, resultado,unidadM) {
         const resultadoP = document.getElementById("resultadoTriangulo");
-        resultadoP.innerText = `El ${calculoTypo} del tríangulo es ${resultado}`;
+        resultadoP.innerText = `El ${calculoTypo} del tríangulo es ${resultado} ${unidadM}`;
     }
     //Código Círculo
     function diametroCirculo(radio) {
@@ -33,9 +41,9 @@ const manager = (() => {
     function areaCirculo(radio) {
         return (radio * radio) * Math.PI;
     }
-    function printResultadoCirculo(calculoTypo, resultado) {
+    function printResultadoCirculo(calculoTypo, resultado,unidadM) {
         const resultadoP = document.getElementById("resultadoCirculo");
-        resultadoP.innerText = `El ${calculoTypo} del círculo es ${resultado}`;
+        resultadoP.innerText = `El ${calculoTypo} del círculo es ${resultado} ${unidadM}`;
     }
     // Código del rectángulo
     function perimetroRectangulo(base, altura) {
@@ -44,9 +52,9 @@ const manager = (() => {
     function areaRectangulo(base, altura) {
         return base * altura;
     }
-    function printResultadoRectangulo(calculoTypo, resultado) {
+    function printResultadoRectangulo(calculoTypo, resultado,unidadM) {
         const resultadoP = document.getElementById("resultadoRectangulo");
-        resultadoP.innerText = `El ${calculoTypo} del rectángulo es ${resultado}`;
+        resultadoP.innerText = `El ${calculoTypo} del rectángulo es ${resultado} ${unidadM}`;
     }
 
 
@@ -83,18 +91,18 @@ const manager = (() => {
                 const input = document.getElementById("inputCuadrado");
                 const value = input.value;
                 const perimetro = perimetroCuadrado(value);
-                printResultadoCuadrado("perímetro", perimetro);
+                printResultadoCuadrado("perímetro", perimetro , "cm");
             },
         cuadradoArea:
             function calcularAreaCuadradoHTML() {
                 const input = document.getElementById("inputCuadrado");
                 const value = input.value;
                 const area = areaCuadrado(value);
-                printResultadoCuadrado("área", area);
+                printResultadoCuadrado("área", area, "cm'2");
             },
-            
+
         cuadradoClean:
-            function clearDataCuadrado(){
+            function clearDataCuadrado() {
                 const input = document.getElementById("inputCuadrado");
                 const resultadoP = document.getElementById("resultadoCuadrado");
                 input.value = null;
@@ -110,7 +118,7 @@ const manager = (() => {
                 const value2 = input2.value;
                 const value3 = input3.value;
                 const perimetro = perimetroTriangulo(value1, value2, value3);
-                printResultadoTriangulo("perímetro", perimetro);
+                printResultadoTriangulo("perímetro", perimetro, "cm");
             },
         trianguloArea:
             function calcularAreaTrianguloHTML() {
@@ -119,21 +127,21 @@ const manager = (() => {
                 const value1 = input3.value;
                 const value2 = input4.value;
                 const area = areaTriangulo(value1, value2);
-                printResultadoTriangulo("área", area);
-            },
+                printResultadoTriangulo("área", area, "cm'2");
+            },//9 5 10
         trianguloAreaHeron:
             function calcularAreaHeronTrianguloHTML() {
                 const input1 = document.getElementById("inputTriangulo1");
                 const input2 = document.getElementById("inputTriangulo2");
                 const input3 = document.getElementById("inputTriangulo3");
-                const value1 = input1.value;
-                const value2 = input2.value;
-                const value3 = input3.value;
+                const value1 = parseInt(input1.value);
+                const value2 = parseInt(input2.value);
+                const value3 = parseInt(input3.value);
                 const area = areaTrianguloHeron(value1, value2, value3);
-                printResultadoTriangulo("área", area);
+                printResultadoTriangulo("área", area, "cm'2");
             },
         trianguloClean:
-            function clearDataTriangulo(){
+            function clearDataTriangulo() {
                 const input1 = document.getElementById("inputTriangulo1");
                 const input2 = document.getElementById("inputTriangulo2");
                 const input3 = document.getElementById("inputTriangulo3");
@@ -151,13 +159,13 @@ const manager = (() => {
             const input = document.getElementById("inputCirculo");
             const value = input.value;
             const perimetro = perimetroCirculo(value);
-            printResultadoCirculo("perímetro", perimetro);
+            printResultadoCirculo("perímetro", perimetro, "cm");
         },
         circuloArea: function calcularAreaCirculoHTML() {
             const input = document.getElementById("inputCirculo");
             const value = input.value;
             const area = areaCirculo(value);
-            printResultadoCirculo("área", area);
+            printResultadoCirculo("área", area, "cm'2");
         },
         circuloClean:
             function clearDataRectangulo() {
@@ -175,7 +183,7 @@ const manager = (() => {
                 const valueBase = inputBase.value;
                 const valueAltura = inputAltura.value;
                 const perimetro = perimetroRectangulo(valueBase, valueAltura);
-                printResultadoRectangulo("perímetro", perimetro);
+                printResultadoRectangulo("perímetro", perimetro, "cm");
             },
         rectanguloArea:
             function calcularAreaRectanguloHTML() {
@@ -184,7 +192,7 @@ const manager = (() => {
                 const valueBase = inputBase.value;
                 const valueAltura = inputAltura.value;
                 const area = areaRectangulo(valueBase, valueAltura);
-                printResultadoRectangulo("área", area);
+                printResultadoRectangulo("área", area, "cm'2");
             },
         rectanguloClean:
             function clearDataRectangulo() {

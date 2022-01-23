@@ -40,23 +40,27 @@
           <input type="number" id="credito" placeholder="3" min="1" required />
           <span hidden="true" id="invalidCredito">
             <br />
-            Porfavor, rellenar el campo "Credito del curso" con un dato valido
+            Por favor, rellenar el campo "Crédito del curso" con un dato valido
           </span>
           <br />
-          <button type="button" onclick="agregarMateria()">
+          <button type="button" onclick="manager.addMateria()">
             Agregar materia a la lista
           </button>
-          <button type="button" onclick="clearList()">Limpiar lista</button>
-          <button type="button" onclick="eliminarUltimo()">
-            Eliminar ultimo
+          <button type="button" onclick="manager.resetList()">
+            Limpiar lista
+          </button>
+          <button type="button" onclick="manager.deleteLast()">
+            Eliminar último
           </button>
           <br />
+          
           <p id="lista">[]</p>
           <br />
-          <button type="button" onclick="calcularPromedioPonderadoHTML()">
+          <button type="button" onclick="manager.calcularPromedioPonderado()">
             Calcular el promedio ponderado
           </button>
         </form>
+        <div></div>
         <p id="resultadoP"></p>
       </section>
     </main>

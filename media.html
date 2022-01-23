@@ -7,22 +7,29 @@
     <title>Sacar Media</title>
   </head>
   <body>
-    <header><h1>Sacar Media</h1></header>
+    <header><h1>PROMEDIOS</h1></header>
     <main>
       <section>
         <h2>Mediana</h2>
+        <p>
+          La mediana es el número en el centro del conjunto cuando los números
+          se ordenan en orden de menor a mayor.
+        </p>
+        <p>
+          Si el conjunto contiene un número par de enteros, la mediana son los
+          dos números en el centro que se suman y dividen por dos.
+        </p>
+      </section>
+      <section>
         <form>
-          <label for="inputMediana">
-            Introduce una lista numerica.
-            <br />
-            Los numeros separados por ";"
-            <br />
-          </label>
-          <input type="text" id="inputMediana" placeholder="56;89;5;200" />
-          <br />
-          <button type="button" onclick="calcularMedianaHTML()">
+          <h2>Sacar la mediana de un conjunto númerico</h2>
+          <label for="inputMediana"> Introduce una lista numérica: </label>
+          <input type="text" id="inputMediana" placeholder="ex. 1,2,300" />
+          
+          <button type="button" onclick="manager.calcularMediana()">
             Calcular mediana
           </button>
+          <button type="button" onclick="manager.reset()">Resetear</button>
           <p id="resultado"></p>
         </form>
       </section>
