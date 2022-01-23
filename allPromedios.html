@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promedios</title>
+  </head>
+  <body>
+    <header>
+      <h1>MEDIA, MEDIANA Y MODA</h1>
+    </header>
+    <main>
+      <section>
+        <h1>Tú eliges qué deseas calcular</h1>
+        <form>
+          <h2>Agrega números a calcular</h2>
+          <input type="number" id="inputNum" placeholder="Inserte un número" />
+          <button type="button" onclick="manager.addNumber()">Agregar</button>
+          <button type="button" onclick="manager.deleteLast()">
+            Eliminar último
+          </button>
+          <button type="button" onclick="manager.reset()">
+            Resetear lista
+          </button>
+
+          <p id="lista"></p>
+          <h2>¿Qué deseas calcular</h2>
+          <button type="button" onclick="manager.media()">
+            Media (Promedio)
+          </button>
+          <button type="button" onclick="manager.moda()">Moda</button>
+          <button type="button" onclick="manager.mediana()">Mediana</button>
+          <p id="resultado"></p>
+        </form>
+      </section>
+    </main>
+    <script src="./utils.js"></script>
+    <script src="./allPromedios.js"></script>
+  </body>
+</html>

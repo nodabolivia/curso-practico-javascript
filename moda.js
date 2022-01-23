@@ -33,10 +33,7 @@ const manager = (() => {
             );
             const resultadoP = document.getElementById("resultadoP");
             resultadoP.innerText = "La moda de la lista numérica es " + resultadoModa[0] + " y se repite " + resultadoModa[1] + " veces";
-            console.log({
-                valorListaInput,
-                valorListaString
-            });
+            
 
         },
         reset:
