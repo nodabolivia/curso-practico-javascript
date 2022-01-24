@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="description" content="Calculadora en linea" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NodaCal</title>
+  </head>
+  <body>
+    <header>
+      <h1>Calculadora de tiempo</h1>
+    </header>
+    <main>
+      <section>
+        <h2>Fechas específicas</h2>
+        <p>Calcula el tiempo transcurrido entre dos fechas diferentes</p>
+        <form id="form1">
+          <h4>Primera fecha</h4>
+          <label for="primerDia">Día</label>
+          <input type="text" id="primerDia" name="primerDia" />
+          <br /><label for="primerMes">Mes</label>
+          <input type="text" id="primerMes" name="primerMes" />
+          <br /><label for="primerAnho">Año</label>
+          <input type="text" id="primerAnho" name="primerAnho" />
+          <hr />
+          <h4>Segunda fecha</h4>
+          <label for="segundoDia">Día</label>
+          <input type="text" id="segundoDia" />
+          <br /><label for="segundoMes">Mes</label>
+          <input type="text" id="segundoMes" />
+          <br /><label for="segundoAnho">Año</label>
+          <input type="text" id="segundoAnho" />
+          <br />
+          <button
+            id="btnForm1"
+            type="button"
+            onclick="manager.fechasEspecificas()"
+          >
+            Calcular
+          </button>
+        </form>
+        <div>
+          <h3>Tiempo transcurrido</h3>
+          <p>Tiempo aproximado <span id="tiempoTranscurrido"> </span></p>
+          <p>Días transcurridos <span id="diasTranscurrido"></span></p>
+          
+        </div>
+      </section>
+      <hr />
+      <section>
+        <h2>Días a Semanas</h2>
+        <form id="form2">
+          <label for="inputDaystoWeeks">Escribe los días</label>
+          <input type="text" id="inputDaystoWeeks" min="1" placeholder="0" />
+          <button type="button" onclick="manager.dias2Semanas()">
+            Calcular
+          </button>
+          <br />
+          <label for="daysform2">Días</label>
+          <input
+            type="text"
+            disabled
+            id="daysform2"
+            placeholder="Cantidad de días"
+          />
+          =
+          <label for="weeksform2">Semanas</label>
+          <input
+            type="text"
+            disabled
+            id="weeksform2"
+            placeholder="Cantidad de semanas"
+          />
+        </form>
+      </section>
+    </main>
+    <script src="calculadoraFechas.js"></script>
+  </body>
+</html>
